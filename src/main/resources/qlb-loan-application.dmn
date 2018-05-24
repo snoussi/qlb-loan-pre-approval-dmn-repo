@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<dmn11:definitions xmlns="http://www.trisotech.com/dmn/definitions/_c55e5995-0cc9-40b8-b783-88468c69ebca" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="6.0.7.2" id="_c55e5995-0cc9-40b8-b783-88468c69ebca" name="qlb-loan-application" namespace="http://www.trisotech.com/dmn/definitions/_c55e5995-0cc9-40b8-b783-88468c69ebca" triso:logoChoice="Default" xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">
+  <dmn11:extensionElements/>
+  <dmn11:itemDefinition label="tApplicant" name="tApplicant">
+    <dmn11:itemComponent id="_eed8f299-4e03-45a7-9382-1980e618194a" name="name">
+      <dmn11:typeRef>feel:string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_407a7155-a4ee-41fa-8ded-9d8dff96b117" name="age">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_3a41c228-8077-4d23-bc75-4028b1731e87" name="credit score">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_16cc360d-e440-4ffb-91b9-667d8e1a652e" name="eligible">
+      <dmn11:typeRef>feel:boolean</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_f819e688-8a11-445f-a393-5dcb7fefad99" name="yearly income">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_b568bb5b-442f-44fa-a72d-ef45b7cf58cf" name="monthly income">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition label="tLoan" name="tLoan">
+    <dmn11:itemComponent id="_b0d4cd61-e9e8-47af-9d14-b5455516eb26" name="amount">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_484b0701-13b8-4303-ac1b-aa4bfaf64fab" name="duration">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_2d4c89b5-4273-4b8f-86d2-3c429b05de9b" name="interest rate">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_bd549858-6934-4681-b115-072b67523bfd" name="monthly repayment">
+      <dmn11:typeRef>feel:number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_a3284ec1-f2e1-4b0a-b8e1-e1d87ca94bfd" name="approval">
+      <dmn11:typeRef>tLoanApproval</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition label="tLoanApproval" name="tLoanApproval">
+    <dmn11:itemComponent id="_d58e8f4b-ecfa-45a0-8d75-bb502da0c37f" name="approved">
+      <dmn11:typeRef>feel:boolean</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_74a04cba-e3a0-4cda-b606-6673d59a8049" name="reason">
+      <dmn11:typeRef>feel:string</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:inputData id="_d3649c4e-0533-4477-a947-4840c5301740" name="Applicant">
+    <dmn11:variable id="_fcb3d8a0-d099-47c7-9e29-dcf97bbb779c" name="Applicant" typeRef="tApplicant"/>
+  </dmn11:inputData>
+  <dmn11:decision id="_6c2bd37e-5bb7-4b50-b832-e60dff9bd681" name="Applicant Initialisation">
+    <dmn11:variable id="_6ea1e9eb-8d73-4c37-a36b-48729b85768b" name="Applicant Initialisation" typeRef="tApplicant"/>
+    <dmn11:informationRequirement>
+      <dmn11:requiredInput href="#_d3649c4e-0533-4477-a947-4840c5301740"/>
+    </dmn11:informationRequirement>
+    <dmn11:context id="_df1736cc-b3ba-4e44-b66b-d2462bd9196c">
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="name" typeRef="feel:string"/>
+        <dmn11:literalExpression id="_a8c952f9-7539-4224-8bfd-f1ad2f247839">
+          <dmn11:text>Applicant.name</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="age" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_28a97910-ac05-408f-92b2-2e05c7f260b8">
+          <dmn11:text>Applicant.age</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="credit score" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_fe8bf2f6-f87d-40d9-a32e-b29175df4502">
+          <dmn11:text>Applicant.credit score</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="eligible" typeRef="feel:boolean"/>
+        <dmn11:literalExpression id="_970e5a98-01d6-4206-97c4-3e8d09ab99f8">
+          <dmn11:text>true</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="yearly income" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_0290d206-0366-4a2b-b584-c82216b9eec3">
+          <dmn11:text>Applicant.yearly income</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="monthly income" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_a081eabd-2e18-4f9a-8e83-2dd196092f73">
+          <dmn11:text>Applicant.yearly income / 12</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_30c0d46a-89c2-4622-9324-a18edea12db3" name="Eligibility Rules">
+    <dmn11:encapsulatedLogic>
+      <dmn11:formalParameter name="Age" typeRef="feel:number"/>
+      <dmn11:decisionTable hitPolicy="UNIQUE" id="_a9fbae02-cd7f-41e5-8636-c9cdf328605a" outputLabel="Eligibility Rules">
+        <dmn11:input id="_0094944f-581b-485c-aa1f-37d5837fafa0">
+          <dmn11:inputExpression typeRef="feel:number">
+            <dmn11:text>Age</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:output id="_49282094-6f26-4a69-addc-45a3209bfa71"/>
+        <dmn11:rule id="_e4731b52-2b94-4a79-b1d4-a05382247633">
+          <dmn11:inputEntry id="_41ff973b-3fd2-4892-9009-938bd3b75fac">
+            <dmn11:text>&lt;18</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_d0260c49-cda3-4369-8fd8-ede5213c2a3f">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_63997129-97a8-4c07-9c20-7702dcb9d3e1">
+          <dmn11:inputEntry id="_44f69f43-085c-4734-9ce2-6c7844a3ca09">
+            <dmn11:text>&gt;70</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_cadcd5db-d0de-46b5-8a2b-877416aee875">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_b4b4c940-9dd0-4fb4-b0c4-44d75d9794ae">
+          <dmn11:inputEntry id="_288125ec-b327-4539-8f14-1e4d591c5ecc">
+            <dmn11:text>[18..70]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_5c16a4ac-57cb-48d1-a3f3-83739bd96577">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+      </dmn11:decisionTable>
+    </dmn11:encapsulatedLogic>
+    <dmn11:variable id="_e26c7ffb-6638-4491-919d-04041367b51a" name="Eligibility Rules" typeRef="feel:boolean"/>
+  </dmn11:businessKnowledgeModel>
+  <dmn11:decision id="_eb49f630-300e-4fd5-a20f-745b697a6770" name="Applicant Eligibility">
+    <dmn11:variable id="_5725dc96-0b49-4197-957c-0c9414f12a3a" name="Applicant Eligibility" typeRef="tApplicant"/>
+    <dmn11:informationRequirement>
+      <dmn11:requiredDecision href="#_6c2bd37e-5bb7-4b50-b832-e60dff9bd681"/>
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement>
+      <dmn11:requiredKnowledge href="#_30c0d46a-89c2-4622-9324-a18edea12db3"/>
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_91245222-cce4-4337-ba20-359590555d08">
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="name" typeRef="feel:string"/>
+        <dmn11:literalExpression id="_c87e11a5-edd9-4790-94aa-e97e54c06519">
+          <dmn11:text>Applicant Initialisation.name</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="age" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_8517f2e1-7987-4d1b-ade9-d694db0a1f46">
+          <dmn11:text>Applicant Initialisation.age</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="credit score" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_57d0e1f3-59c5-4c0f-8838-18130414a061">
+          <dmn11:text>Applicant Initialisation.credit score</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="yearly income" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_2638aa67-5620-467b-bf40-9d8d44d0bb08">
+          <dmn11:text>Applicant Initialisation.yearly income</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="monthly income" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_ebddf070-04cd-4730-b5ab-9d13eedc72b6">
+          <dmn11:text>Applicant Initialisation.monthly income</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="_4e3fe96f-42d6-46ab-9879-d2d37ffbfb6d" name="eligible" typeRef="feel:boolean"/>
+        <dmn11:invocation id="_c4b7c43e-e1e6-4e8c-b039-1b96182335fd">
+          <dmn11:literalExpression id="literal__c4b7c43e-e1e6-4e8c-b039-1b96182335fd">
+            <dmn11:text>Eligibility Rules</dmn11:text>
+          </dmn11:literalExpression>
+          <dmn11:binding>
+            <dmn11:parameter id="_41311fb7-d462-47fa-b325-7694c0e60c61" name="Age"/>
+            <dmn11:literalExpression id="_f964bd65-d031-4e3c-a669-b1d0b7e9643b">
+              <dmn11:text>Applicant Initialisation.age</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+        </dmn11:invocation>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:inputData id="_d5f2bf39-6291-47cb-a908-dc85c6f64026" name="Loan">
+    <dmn11:variable id="_b26ee694-040d-490d-ae2f-a180d7cd74e5" name="Loan" typeRef="tLoan"/>
+  </dmn11:inputData>
+  <dmn11:decision id="_4893395c-4a05-45d6-a14f-eb789d82de42" name="Interest Rate Calculation">
+    <dmn11:variable id="_0b0b3864-d75b-4198-9d8e-2812e808899b" name="Interest Rate Calculation" typeRef="tLoan"/>
+    <dmn11:informationRequirement>
+      <dmn11:requiredInput href="#_d5f2bf39-6291-47cb-a908-dc85c6f64026"/>
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement>
+      <dmn11:requiredKnowledge href="#_1f241121-d6a4-4976-8f53-0afc4fa2d0e2"/>
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_d573587b-ebd9-4426-92ad-1cd6b5041a39">
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="amount" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_54de8987-9546-490c-a6df-5fa5ed8d0216">
+          <dmn11:text>Loan.amount</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="duration" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_9ea98a21-52d8-4b05-a38a-e7edc115ef41">
+          <dmn11:text>Loan.duration</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="interest rate" typeRef="feel:number"/>
+        <dmn11:invocation id="_97e7b1df-a261-49c5-a099-e66c450e7e95">
+          <dmn11:literalExpression id="literal__97e7b1df-a261-49c5-a099-e66c450e7e95">
+            <dmn11:text>Interest Rate Rules</dmn11:text>
+          </dmn11:literalExpression>
+          <dmn11:binding>
+            <dmn11:parameter id="_41dd5d6b-d070-4466-9d98-6829bb64e9a4" name="Amount"/>
+            <dmn11:literalExpression id="_5738c269-b793-45dd-aabb-7a95a8f42aab">
+              <dmn11:text>amount</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+          <dmn11:binding>
+            <dmn11:parameter id="_3d72b92f-74b4-4b5d-8d85-5ce3abfec577" name="Duration"/>
+            <dmn11:literalExpression id="_fac59026-1e33-41ed-b323-bf0fb6894bab">
+              <dmn11:text>duration</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+        </dmn11:invocation>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="monthly repayment" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_9dfac317-0143-4ae9-b7d1-e9ed5145a252">
+          <dmn11:text>((interest rate * amount/100) + amount) / (duration * 12)</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_1f241121-d6a4-4976-8f53-0afc4fa2d0e2" name="Interest Rate Rules">
+    <dmn11:encapsulatedLogic>
+      <dmn11:formalParameter name="Amount" typeRef="feel:number"/>
+      <dmn11:formalParameter name="Duration" typeRef="feel:number"/>
+      <dmn11:decisionTable hitPolicy="UNIQUE" id="_4a6e0b34-d7cf-4fe4-a715-50f7326e0a2f" outputLabel="Interest Rate Rules">
+        <dmn11:input id="_5c1f0f69-4e58-498e-9f75-757c1c5a4873">
+          <dmn11:inputExpression typeRef="feel:number">
+            <dmn11:text>Amount</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:input id="_6806ad08-d154-4397-a7d9-4bb19afeab1a">
+          <dmn11:inputExpression typeRef="feel:number">
+            <dmn11:text>Duration</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:output id="_fa44a4be-9c4c-4b93-9821-788c40ca00c0"/>
+        <dmn11:rule id="_c7c26139-62a4-4708-882b-a51c5c14fcf4">
+          <dmn11:inputEntry id="_cfcf6f34-72ba-49b4-95b6-1a15cc559c25">
+            <dmn11:text>&lt;= 300000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_2102831d-f406-4442-a198-4862487ca9b6">
+            <dmn11:text>7</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_1da1c7ae-5d46-424e-82e8-16d59ce3b0c7">
+            <dmn11:text>0.47</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_12833ddc-b0bd-43e4-afd4-d28d312f03ac">
+          <dmn11:inputEntry id="_ba5e7718-3f6c-43de-a35b-2cf52928e1ab">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_1bc88ccd-d393-439d-ae2b-555abc2671bb">
+            <dmn11:text>7</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_bef7c673-0441-4e16-a622-4ceae4347d29">
+            <dmn11:text>0.70</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_0cfc88c0-0154-44cd-9d92-8cad6ad50b55">
+          <dmn11:inputEntry id="_6d101393-7444-471e-a5c2-f4b15658daad">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_2cf0baf3-0dae-4de5-b883-af4fa90d8d82">
+            <dmn11:text>7</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_570f6024-d24e-49b9-89f5-5d91997dd522">
+            <dmn11:text>0.98</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_5cd03af1-3bd5-420e-90c7-90fa501b4d47">
+          <dmn11:inputEntry id="_f9476c84-24bf-45df-9a8e-f1a8b1384629">
+            <dmn11:text>&lt;= 30000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_fdd645c9-7b2c-4662-94ca-9170a7f14c4e">
+            <dmn11:text>10</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_834f18e1-0690-4280-b394-eb6605ace282">
+            <dmn11:text>0.72</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_7fd7757b-18e8-4cfa-8df3-4e437b808d6a">
+          <dmn11:inputEntry id="_828f7c1d-f535-41d1-a9a9-13143518fb62">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_29d9492d-81d5-4bbf-a62c-a2b29e7cc5ec">
+            <dmn11:text>10</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_5afd816b-f834-4b1a-be34-082cddddc14d">
+            <dmn11:text>0.90</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_b89e59aa-b047-42fb-8800-0d90f8405291">
+          <dmn11:inputEntry id="_699f9e04-5b9c-47a1-b21b-77c8c44face4">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_3d4d8052-9cb1-4d8b-be45-c44fdaf970c4">
+            <dmn11:text>10</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_d604bb97-7960-44bb-b3de-66fba40553bb">
+            <dmn11:text>1.10</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_c3b1cdb0-cade-4498-a746-333b03acbc3f">
+          <dmn11:inputEntry id="_93f1dfae-0358-4b88-ae9f-802937357637">
+            <dmn11:text>&lt;= 300000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_424f0e3d-4b00-40f3-ad56-72fab2cfd7a1">
+            <dmn11:text>12</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_1f186e8b-3c30-4215-bce1-e70bd4d60bcf">
+            <dmn11:text>0.87</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_b6aa048b-e734-4718-9b5f-d5d9deaccc22">
+          <dmn11:inputEntry id="_f19d7419-c0f0-42d9-a089-2c8e9371509e">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_acd5a62f-33c5-4ce0-b84d-aba46bd54b79">
+            <dmn11:text>12</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_e0901b9a-ed51-4d73-a40e-4ead3f8ab053">
+            <dmn11:text>1.06</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_249f2321-ab28-4e02-8278-b83484aa26c3">
+          <dmn11:inputEntry id="_3c42233d-c54f-4231-aa12-0b9ec5b007f0">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_ac1a04a3-9e44-417d-8979-bdad256afa60">
+            <dmn11:text>12</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_c6f4b6b3-dfde-4609-b650-a2f9031cbecd">
+            <dmn11:text>1.31</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_afda8416-37dc-472e-b9e3-bf01dcfb94f8">
+          <dmn11:inputEntry id="_3d31f721-2eaa-494c-8656-6366f7344c97">
+            <dmn11:text>&lt;= 300000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_095d1d51-a7fe-4e73-ad08-d9a57b3ba935">
+            <dmn11:text>15</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_7e860348-e085-4815-a6bb-d85a8da75eb6">
+            <dmn11:text>1.06</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_bffa5fab-0733-456a-a76f-c51a6b046de2">
+          <dmn11:inputEntry id="_09635a0d-b139-406c-906f-113fc3f926c8">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_a41ff72d-bd6c-4022-897b-a385e5efd03f">
+            <dmn11:text>15</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_66af78c2-4101-4d23-9c71-992846952c82">
+            <dmn11:text>1.20</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_f2d80928-3c67-4691-943e-bb501efa2130">
+          <dmn11:inputEntry id="_506ebe50-0683-4b65-bf09-b80a230918c6">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_150d3829-58d0-4790-be05-cd47e45cc360">
+            <dmn11:text>15</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_b9645b0d-4047-4574-97a6-4a164ce816c5">
+            <dmn11:text>1.45</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_30fc7d84-4e07-4484-a999-e19ccafebfad">
+          <dmn11:inputEntry id="_969d67eb-c986-4de0-b9fc-a38353803b1c">
+            <dmn11:text>&lt;= 300000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_136ba926-fde7-47da-8d3f-887b5ddaf6e4">
+            <dmn11:text>20</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_cac57412-24fd-4070-89ce-b89c54bf7502">
+            <dmn11:text>1.25</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_7e60738c-0eb8-4011-aa77-5eb969bc4472">
+          <dmn11:inputEntry id="_3a599f02-5bbe-4b77-852d-38e2c73f7bd2">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_c57cd883-837c-48d1-b2ac-2532ce165aad">
+            <dmn11:text>20</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_e07ae781-f001-4c87-b3fa-a3710128f3d1">
+            <dmn11:text>1.39</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_e488d294-2c1a-4455-985c-e1d6f9d8a792">
+          <dmn11:inputEntry id="_caa571bc-dcb4-4503-a4d9-2c540c1b0116">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_f84a2bc4-a18f-4ce5-aa31-debdd2741130">
+            <dmn11:text>20</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_8c16c7bf-9719-452b-ab34-fb33b1c34adc">
+            <dmn11:text>1.65</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_37880173-33ed-49e8-9fec-19316d26ef3d">
+          <dmn11:inputEntry id="_15c0a499-a86a-433b-89d0-c32bfe44c403">
+            <dmn11:text>&lt;= 300000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_6f121052-28f2-438f-b30a-2b1ed27c2a35">
+            <dmn11:text>25</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_e93531fc-7e3e-4fab-ae44-019bcdcf3518">
+            <dmn11:text>1.45</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_85cdf3ee-aeeb-4648-98c1-edc18793d8e3">
+          <dmn11:inputEntry id="_feb4029c-37a8-40bf-819c-ab45c8ecdf19">
+            <dmn11:text>(300000..600000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_14e16ca8-8dcf-4fbe-b52e-a4b797a05f83">
+            <dmn11:text>25</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_9345120b-3f16-4f04-becc-3524d428508b">
+            <dmn11:text>1.65</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_a6008f0a-dcd4-4c2d-9386-d8ba91f13bcc">
+          <dmn11:inputEntry id="_b8605033-2f0d-4879-9939-a2a72054dd17">
+            <dmn11:text>&gt; 600000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_82a9364d-1a48-4e3a-baa9-38ab197119aa">
+            <dmn11:text>25</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_de515304-da99-4ca1-98ef-501f7eedf28c">
+            <dmn11:text>1.85</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+      </dmn11:decisionTable>
+    </dmn11:encapsulatedLogic>
+    <dmn11:variable id="_8c4e2b69-bbe3-452f-b71a-bae375a2986e" name="Interest Rate Rules" typeRef="feel:number"/>
+  </dmn11:businessKnowledgeModel>
+  <dmn11:decision id="_ed716e8f-f520-4af2-abb4-15e2b55e57ad" name="Loan Approval">
+    <dmn11:variable id="_d9aa0e2d-5f07-4048-b642-e8e5c1ecf83e" name="Loan Approval" typeRef="tLoan"/>
+    <dmn11:informationRequirement>
+      <dmn11:requiredDecision href="#_4893395c-4a05-45d6-a14f-eb789d82de42"/>
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement>
+      <dmn11:requiredDecision href="#_eb49f630-300e-4fd5-a20f-745b697a6770"/>
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement>
+      <dmn11:requiredKnowledge href="#_1a5373d8-1d5f-46d0-90d5-959aa7f8a80a"/>
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_6d1dd4a6-a70d-4a8b-b600-3e028d4b8f46">
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="amount" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_239181c8-8525-4b44-8045-51a195f009d8">
+          <dmn11:text>Interest Rate Calculation.amount</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="duration" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_10630a10-6b16-473e-b18c-df585a05fda3">
+          <dmn11:text>Interest Rate Calculation.duration</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="interest rate" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_a7f51ae8-c5d3-40f4-9f19-5954784875d0">
+          <dmn11:text>Interest Rate Calculation.interest rate</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="undefined" name="monthly repayment" typeRef="feel:number"/>
+        <dmn11:literalExpression id="_81938995-7025-41de-ad53-98fa1874bb7a">
+          <dmn11:text>Interest Rate Calculation.monthly repayment</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry>
+        <dmn11:variable id="_2c9bc384-c744-4dc6-af55-022a47ff4112" name="approval" typeRef="tLoanApproval"/>
+        <dmn11:invocation id="_1d3a2e27-55c0-436c-bea8-bb6b5d423114">
+          <dmn11:literalExpression id="literal__1d3a2e27-55c0-436c-bea8-bb6b5d423114">
+            <dmn11:text>Loan Approval Rules</dmn11:text>
+          </dmn11:literalExpression>
+          <dmn11:binding>
+            <dmn11:parameter id="_a401b487-d430-43aa-aa59-9585d59f115e" name="amount"/>
+            <dmn11:literalExpression id="_3bd777ab-c4b2-447a-b57c-99f73a8d1c86">
+              <dmn11:text>Interest Rate Calculation.amount</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+          <dmn11:binding>
+            <dmn11:parameter id="_4b38670f-b4c3-434f-acb3-15ebc252ae14" name="debt ratio"/>
+            <dmn11:literalExpression id="_41d1fced-8aef-449e-a8fd-0fc3d375d004">
+              <dmn11:text>100*(monthly repayment/Applicant Eligibility.monthly income)</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+          <dmn11:binding>
+            <dmn11:parameter id="_56f29ad9-d33c-426d-9404-c3196eb6a9b1" name="credit score"/>
+            <dmn11:literalExpression id="_bb47fcc7-f48a-48a9-a15d-2a5be155d29e">
+              <dmn11:text>Applicant Eligibility.credit score</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+          <dmn11:binding>
+            <dmn11:parameter id="_4afa8f65-bd71-4afd-9048-0749b687a99f" name="eligible"/>
+            <dmn11:literalExpression id="_e0264e44-c187-4b12-b2e3-b5a55abd2c13">
+              <dmn11:text>Applicant Eligibility.eligible</dmn11:text>
+            </dmn11:literalExpression>
+          </dmn11:binding>
+        </dmn11:invocation>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_1a5373d8-1d5f-46d0-90d5-959aa7f8a80a" name="Loan Approval Rules">
+    <dmn11:encapsulatedLogic>
+      <dmn11:formalParameter name="eligible" typeRef="feel:boolean"/>
+      <dmn11:formalParameter name="amount" typeRef="feel:number"/>
+      <dmn11:formalParameter name="debt ratio" typeRef="feel:number"/>
+      <dmn11:formalParameter name="credit score" typeRef="feel:string"/>
+      <dmn11:decisionTable hitPolicy="FIRST" id="_f63729e5-99b5-4ae0-ba33-652c4c78953e" outputLabel="Loan Approval Rules">
+        <dmn11:input id="_bc6ee222-7cd6-42f8-9e1b-1a0bd813e55f">
+          <dmn11:inputExpression typeRef="feel:boolean">
+            <dmn11:text>eligible</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:input id="_4beab686-5b2e-42ea-83cc-ab5f8a658e74">
+          <dmn11:inputExpression typeRef="feel:number">
+            <dmn11:text>amount</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:input id="_7e3498d9-9237-466c-b349-c767e9e523c5">
+          <dmn11:inputExpression typeRef="feel:number">
+            <dmn11:text>debt ratio</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:input id="_2cfd9049-0328-462d-84fb-4c800a2e6341">
+          <dmn11:inputExpression typeRef="feel:string">
+            <dmn11:text>credit score</dmn11:text>
+          </dmn11:inputExpression>
+        </dmn11:input>
+        <dmn11:output id="_2d93f0d3-5836-4ca5-9d95-7fd9a14ee34a" name="approved" typeRef="feel:boolean"/>
+        <dmn11:output id="_54e893a7-9b40-40b1-b897-e8f2bbba939c" name="reason" typeRef="feel:string"/>
+        <dmn11:rule id="_c723bb61-1264-42bc-95f9-c2e74ba98621">
+          <dmn11:inputEntry id="_5f720259-2120-4480-915a-c66860fab4ff">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_5a1cbef7-a3af-42d5-a66c-bb44d01df031">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_8ca7cc5c-17e8-44c3-b07e-b43fd756b13e">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_52fc93fd-7359-4a90-a301-dfa0a286a099">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_5fa54927-eb82-412f-848a-eb0383d50cbb">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_38280ae9-b580-44ea-aa7d-fbd8d9851eb1">
+            <dmn11:text>"applicant not eligible"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_2dcc67dc-1dfa-4238-8059-53456e8c544c">
+          <dmn11:inputEntry id="_3473e165-8841-4f50-9a66-177f9fadd580">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_b8ca2123-cb24-42c7-ae7c-65f9d17cbc03">
+            <dmn11:text>&lt;= 1000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_7f97bb9e-ff23-4922-9b54-af4d99b4a201">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_094204bd-b4b3-432b-961b-3719241e27f7">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_629cb5fa-c984-4f5e-8e19-d32ad4d7a0a0">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_e113f85b-e1d2-4ea5-9c75-6be637e62b66">
+            <dmn11:text>"amount too low"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_7df01c4f-170c-41b9-abb1-65720fdddd15">
+          <dmn11:inputEntry id="_8bf18fda-1608-475e-afd9-012bb23eb191">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_ae5b5752-cbb6-4d86-a6da-e7f52eba42cf">
+            <dmn11:text>&gt; 1000000</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_1e99cf6b-7c53-46bc-ad1c-32e9b7235c04">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_37dbe403-e1fb-4e15-aeeb-4b27d258d5c7">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_711f1ea8-98ab-41b4-9467-3add841b03ea">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_4a5a72ed-16bc-4309-8d31-16ed4efa0e93">
+            <dmn11:text>"amount too high"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_a0b42f42-01ac-4ec2-9ace-d2a8fcfe89c9">
+          <dmn11:inputEntry id="_b6ed604c-6ad8-4249-92c3-d36b99a86a93">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_055cad6a-1450-4133-a842-9209fe5b9c95">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_eafd49e3-c2a7-4b64-ba8a-9a32303671af">
+            <dmn11:text>&gt; 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_8ba22ef5-9df7-464f-91d5-d82a17b9c20d">
+            <dmn11:text>-</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_a09f86cf-9ba7-41f2-9f51-b731ad5556a6">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_afb0f751-8dd5-469d-a2bf-69063aac02bf">
+            <dmn11:text>"debt ratio too high"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_7fd7db2d-a60e-43ea-ab33-ad3077ea887c">
+          <dmn11:inputEntry id="_762e33db-a853-4f1f-bb95-766add2a9cb1">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_2f72e2e6-0b98-4c33-bd8f-a4a22cb34025">
+            <dmn11:text>(1000..100000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_aa9c96c6-fc0d-4ae5-8004-e86b5307e9b2">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_10564935-4cda-4365-b469-85d55bed14df">
+            <dmn11:text>&lt;= 300 </dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_830aa6a2-242f-41b9-a684-5371b5cefe29">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_70203992-c5c6-4138-97a0-28789d40e4e1">
+            <dmn11:text>"insufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_182a77d7-eeee-4445-9d4c-4307397e4a74">
+          <dmn11:inputEntry id="_8e5d6679-7cb0-4b08-82f4-1cf4ab98ab12">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_1472f28c-7e67-4252-b793-0ee25eb49fe9">
+            <dmn11:text>(1000..100000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_704d58cf-733f-4cd5-9d2f-c05391323e74">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_931cdd2d-7be4-4771-a7e0-775ff4e2e6f8">
+            <dmn11:text>&gt; 300</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_e8426d4e-07de-442f-bb4d-aae74ab65417">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_46b82490-4ef8-47ee-be9f-cab4f8b20b7f">
+            <dmn11:text>"sufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_0049aca8-58f9-4a95-91e3-07dff63b224a">
+          <dmn11:inputEntry id="_bc8ee4f9-e083-4397-acaa-b1b35ab591b9">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_d8ff8c70-a5e5-4d80-9aa6-6d4356fe5718">
+            <dmn11:text>(100000..400000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_86a37602-5ad1-49d5-bf63-5a1f85910901">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_e1a710e6-944c-4d28-8a84-851e8651b4ea">
+            <dmn11:text>&lt;= 400</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_b6f4a285-1a85-434a-8a22-c328a8a5861c">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_144a1637-81c3-4792-9bde-bd53d9d780a8">
+            <dmn11:text>"insufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_a33cd923-c742-4e66-81c9-a1a4e03e767a">
+          <dmn11:inputEntry id="_672a8263-a119-4453-ae94-212747eb44be">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_794b1946-3685-455b-9d0c-b335cfa9b9c9">
+            <dmn11:text>(100000..400000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_e2a6148b-f756-4ab3-a452-a3105fd4593f">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_3fc32dcc-eb1e-4601-90e5-f6040f17462e">
+            <dmn11:text>&gt; 400</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_ef75bbde-74b3-46f5-8bd7-33111032ffa8">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_da182496-efe0-418d-8e82-820d2a01afa7">
+            <dmn11:text>"sufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_1ff9a0d2-58ad-4934-81f5-b82afa971d52">
+          <dmn11:inputEntry id="_99808d39-2398-419c-b730-8bbad7a9e416">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_02031948-73d7-4d9f-91f6-e59a9ab5d295">
+            <dmn11:text>(400000..500000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_4df1fc44-5d3b-42e5-9452-420c48422ffa">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_0cfa845c-f862-47ec-af12-00a119292939">
+            <dmn11:text>&lt;= 500</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_76798632-6902-4e0d-9616-8e9926c1404e">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_aa6dfcce-7c1a-4c15-9a8b-0475034aa41f">
+            <dmn11:text>"insufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_4074647b-3152-4bbb-8bfa-79aa585bd87b">
+          <dmn11:inputEntry id="_3c39a219-8ab1-42ce-bd82-6427468295e4">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_156271da-0e12-4ac6-9502-111a1ffb053c">
+            <dmn11:text>(40000..500000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_7228fc8d-2ec0-4d1d-9077-63289d476f17">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_d9663914-a8b5-4061-b7ca-36d88bbc2e35">
+            <dmn11:text>&gt; 500</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_86b19e16-c6b1-41bd-89bd-fb7f187d4433">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_731e2944-ec9a-49b2-852a-28d85a919745">
+            <dmn11:text>"sufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_6c763cbe-38a9-41f0-97aa-a901eeec2205">
+          <dmn11:inputEntry id="_b34880c3-a81c-4997-934d-f3321e05dd44">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_2697626c-4ec5-49ed-91f9-8263cad4169b">
+            <dmn11:text>(500000..1000000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_a31c8e2e-8ebc-4d42-90d1-479a75027046">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_eba11fa5-b2ab-4a6c-9c72-2ebb4acc5edd">
+            <dmn11:text>&lt;= 700</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_7550ceae-4f84-4ffa-99ba-9db02e8bc00b">
+            <dmn11:text>false</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_21bf3448-745d-4647-9bfa-b646034ada14">
+            <dmn11:text>"insufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+        <dmn11:rule id="_54a54b21-38a1-449d-94fb-0a3705bdc426">
+          <dmn11:inputEntry id="_8cd78140-e76a-402e-97f9-55077721dba6">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_26dd2811-9bd2-4246-9f20-6c3a5ca6ae61">
+            <dmn11:text>(500000..1000000]</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_6e5d73e3-2c26-4954-ba15-56f952dc43fb">
+            <dmn11:text>&lt;= 30</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:inputEntry id="_4b58abf1-5eb1-4d2c-afa9-3b1c23f9e781">
+            <dmn11:text>&gt; 700</dmn11:text>
+          </dmn11:inputEntry>
+          <dmn11:outputEntry id="_320c5596-74f3-4faa-979e-687dcced14a8">
+            <dmn11:text>true</dmn11:text>
+          </dmn11:outputEntry>
+          <dmn11:outputEntry id="_0e3bd68c-f0a2-4335-902b-36af0bdcffd6">
+            <dmn11:text>"sufficient credit score"</dmn11:text>
+          </dmn11:outputEntry>
+        </dmn11:rule>
+      </dmn11:decisionTable>
+    </dmn11:encapsulatedLogic>
+    <dmn11:variable id="_b8726802-88a6-4b23-a328-614a4c7c358a" name="Loan Approval Rules" typeRef="tLoanApproval"/>
+  </dmn11:businessKnowledgeModel>
+</dmn11:definitions>
