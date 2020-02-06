@@ -816,17 +816,41 @@
           <kie:ComponentWidths dmnElementRef="_68A756C8-DD94-46F5-B480-A4B0B68B4441"/>
           <kie:ComponentWidths dmnElementRef="_4a6e0b34-d7cf-4fe4-a715-50f7326e0a2f"/>
           <kie:ComponentWidths dmnElementRef="_44C2881A-FE2A-4D8A-867B-85E050A0B409"/>
-          <kie:ComponentWidths dmnElementRef="_6d1dd4a6-a70d-4a8b-b600-3e028d4b8f46"/>
-          <kie:ComponentWidths dmnElementRef="_239181c8-8525-4b44-8045-51a195f009d8"/>
-          <kie:ComponentWidths dmnElementRef="_10630a10-6b16-473e-b18c-df585a05fda3"/>
-          <kie:ComponentWidths dmnElementRef="_a7f51ae8-c5d3-40f4-9f19-5954784875d0"/>
-          <kie:ComponentWidths dmnElementRef="_81938995-7025-41de-ad53-98fa1874bb7a"/>
-          <kie:ComponentWidths dmnElementRef="_1d3a2e27-55c0-436c-bea8-bb6b5d423114"/>
+          <kie:ComponentWidths dmnElementRef="_6d1dd4a6-a70d-4a8b-b600-3e028d4b8f46">
+            <kie:width>50.0</kie:width>
+            <kie:width>193.0</kie:width>
+            <kie:width>835.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_239181c8-8525-4b44-8045-51a195f009d8">
+            <kie:width>835.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_10630a10-6b16-473e-b18c-df585a05fda3">
+            <kie:width>835.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_a7f51ae8-c5d3-40f4-9f19-5954784875d0">
+            <kie:width>835.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_81938995-7025-41de-ad53-98fa1874bb7a">
+            <kie:width>835.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1d3a2e27-55c0-436c-bea8-bb6b5d423114">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>665.0</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="literal__1d3a2e27-55c0-436c-bea8-bb6b5d423114"/>
-          <kie:ComponentWidths dmnElementRef="_3bd777ab-c4b2-447a-b57c-99f73a8d1c86"/>
-          <kie:ComponentWidths dmnElementRef="_41d1fced-8aef-449e-a8fd-0fc3d375d004"/>
-          <kie:ComponentWidths dmnElementRef="_bb47fcc7-f48a-48a9-a15d-2a5be155d29e"/>
-          <kie:ComponentWidths dmnElementRef="_e0264e44-c187-4b12-b2e3-b5a55abd2c13"/>
+          <kie:ComponentWidths dmnElementRef="_3bd777ab-c4b2-447a-b57c-99f73a8d1c86">
+            <kie:width>665.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_41d1fced-8aef-449e-a8fd-0fc3d375d004">
+            <kie:width>665.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_bb47fcc7-f48a-48a9-a15d-2a5be155d29e">
+            <kie:width>665.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_e0264e44-c187-4b12-b2e3-b5a55abd2c13">
+            <kie:width>665.0</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_a9fbae02-cd7f-41e5-8636-c9cdf328605a"/>
           <kie:ComponentWidths dmnElementRef="_718C9B67-D7F3-422C-9B85-755CE3A67C1D"/>
           <kie:ComponentWidths dmnElementRef="_df1736cc-b3ba-4e44-b66b-d2462bd9196c"/>
