@@ -812,8 +812,20 @@
     <dmndi:DMNDiagram>
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_f63729e5-99b5-4ae0-ba33-652c4c78953e"/>
-          <kie:ComponentWidths dmnElementRef="_68A756C8-DD94-46F5-B480-A4B0B68B4441"/>
+          <kie:ComponentWidths dmnElementRef="_f63729e5-99b5-4ae0-ba33-652c4c78953e">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>192.0</kie:width>
+            <kie:width>124.0</kie:width>
+            <kie:width>119.0</kie:width>
+            <kie:width>183.0</kie:width>
+            <kie:width>300.0</kie:width>
+            <kie:width>674.0</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_68A756C8-DD94-46F5-B480-A4B0B68B4441">
+            <kie:width>50.0</kie:width>
+            <kie:width>1762.0</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_4a6e0b34-d7cf-4fe4-a715-50f7326e0a2f"/>
           <kie:ComponentWidths dmnElementRef="_44C2881A-FE2A-4D8A-867B-85E050A0B409"/>
           <kie:ComponentWidths dmnElementRef="_6d1dd4a6-a70d-4a8b-b600-3e028d4b8f46">
