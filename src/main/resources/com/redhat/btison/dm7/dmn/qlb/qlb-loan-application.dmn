@@ -572,7 +572,7 @@
         </dmn11:rule>
         <dmn11:rule id="_b4b4c940-9dd0-4fb4-b0c4-44d75d9794ae">
           <dmn11:inputEntry id="_288125ec-b327-4539-8f14-1e4d591c5ecc">
-            <dmn11:text>[18..70]</dmn11:text>
+            <dmn11:text>[16..70]</dmn11:text>
           </dmn11:inputEntry>
           <dmn11:outputEntry id="_5c16a4ac-57cb-48d1-a3f3-83739bd96577">
             <dmn11:text>true</dmn11:text>
