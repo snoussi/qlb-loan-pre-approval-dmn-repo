@@ -273,6 +273,97 @@
           </FactMappingValue>
         </factMappingValues>
       </Scenario>
+      <Scenario>
+        <factMappingValues>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Scenario description</name>
+              <className>java.lang.String</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>Description</name>
+              <type>OTHER</type>
+            </expressionIdentifier>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|1</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">90000</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|4</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">500</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|6</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">17</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan</name>
+              <className>Loan</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|7</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">7</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan</name>
+              <className>Loan</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|8</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">100000</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan Approval</name>
+              <className>Loan Approval</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1|36</name>
+              <type>EXPECT</type>
+            </expressionIdentifier>
+            <rawValue class="string">false</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>#</name>
+              <className>java.lang.Integer</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>Index</name>
+              <type>OTHER</type>
+            </expressionIdentifier>
+            <rawValue class="string">2</rawValue>
+          </FactMappingValue>
+        </factMappingValues>
+      </Scenario>
     </scesimData>
   </simulation>
   <background>
