@@ -86,30 +86,6 @@
               <step>Applicant</step>
             </ExpressionElement>
             <ExpressionElement>
-              <step>name</step>
-            </ExpressionElement>
-          </expressionElements>
-          <expressionIdentifier>
-            <name>1|5</name>
-            <type>GIVEN</type>
-          </expressionIdentifier>
-          <factIdentifier>
-            <name>Applicant</name>
-            <className>Applicant</className>
-          </factIdentifier>
-          <className>string</className>
-          <factAlias>Applicant</factAlias>
-          <expressionAlias>name</expressionAlias>
-          <genericTypes/>
-          <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
-        </FactMapping>
-        <FactMapping>
-          <expressionElements>
-            <ExpressionElement>
-              <step>Applicant</step>
-            </ExpressionElement>
-            <ExpressionElement>
               <step>age</step>
             </ExpressionElement>
           </expressionElements>
@@ -239,16 +215,6 @@
               <type>GIVEN</type>
             </expressionIdentifier>
             <rawValue class="string">500</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
-              <name>Applicant</name>
-              <className>Applicant</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|5</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
