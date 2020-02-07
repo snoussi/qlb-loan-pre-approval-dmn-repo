@@ -556,7 +556,7 @@
         <dmn11:output id="_49282094-6f26-4a69-addc-45a3209bfa71"/>
         <dmn11:rule id="_e4731b52-2b94-4a79-b1d4-a05382247633">
           <dmn11:inputEntry id="_41ff973b-3fd2-4892-9009-938bd3b75fac">
-            <dmn11:text>&lt;18</dmn11:text>
+            <dmn11:text>&lt;16</dmn11:text>
           </dmn11:inputEntry>
           <dmn11:outputEntry id="_d0260c49-cda3-4369-8fd8-ede5213c2a3f">
             <dmn11:text>false</dmn11:text>
