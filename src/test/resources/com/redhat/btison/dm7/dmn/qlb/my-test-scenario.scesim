@@ -54,7 +54,7 @@
           <expressionAlias>yearly income</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>196.7940813810111</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -78,7 +78,7 @@
           <expressionAlias>credit score</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>196.7940813810111</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -102,7 +102,7 @@
           <expressionAlias>age</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>196.7940813810111</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -126,7 +126,7 @@
           <expressionAlias>duration</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>196.7940813810111</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -150,7 +150,7 @@
           <expressionAlias>amount</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>196.7940813810111</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -177,7 +177,7 @@
           <expressionAlias>approval.approved</expressionAlias>
           <genericTypes/>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>241.0</columnWidth>
+          <columnWidth>416.02959309494446</columnWidth>
         </FactMapping>
       </factMappings>
     </scesimModelDescriptor>
@@ -383,7 +383,7 @@
           <factAlias>INSTANCE 1</factAlias>
           <expressionAlias>PROPERTY 1</expressionAlias>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
-          <columnWidth>114.0</columnWidth>
+          <columnWidth>1770.0</columnWidth>
         </FactMapping>
       </factMappings>
     </scesimModelDescriptor>
@@ -405,7 +405,7 @@
     </scesimData>
   </background>
   <settings>
-    <dmnFilePath>src/main/resources/com/redhat/btison/dm7/dmn/qlb/qlb-loan-application.dmn</dmnFilePath>
+    <dmnFilePath>src/main/resources/com/redhat/btison/dm7/dmn/qlb/loan-pre-approval.dmn</dmnFilePath>
     <type>DMN</type>
     <dmnNamespace>http://www.qlb.com/dmn/definitions/_c55e5995-0cc9-40b8-b783-88468c69ebca</dmnNamespace>
     <dmnName>loan-application</dmnName>
