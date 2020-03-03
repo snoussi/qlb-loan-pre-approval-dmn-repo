@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.demo.qlb</groupId>
-  <artifactId>loan-application-dmn</artifactId>
+  <artifactId>loan-pre-approval-dmn</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <name>loan-application-dmn</name>
+  <name>loan-pre-approval-dmn</name>
   <description></description>
   <properties>
     <version.org.kie>7.5.0.Final-redhat-4</version.org.kie>
