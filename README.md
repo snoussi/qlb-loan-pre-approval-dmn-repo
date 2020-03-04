@@ -1,6 +1,6 @@
 # Quick Loan Bank - Loan Pre-Approval DMN Decision Service
 
-DMN implementation of qlb loan application demo
+DMN implementation of qlb loan application demo, kudos to [@btison](https://github.com/btison)
 
 Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
 
