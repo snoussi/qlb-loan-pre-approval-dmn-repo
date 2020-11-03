@@ -1,7 +1,6 @@
 # Quick Loan Bank - Loan Pre-Approval DMN Decision Service
 
-DMN implementation of qlb loan application demo, kudos to [@btison](https://github.com/btison)
-
+DMN implementation of qlb loan application demo
 Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
 
 ## Decision Service definition
@@ -18,14 +17,14 @@ Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
   "decision-id": [],
   "dmn-context": {
     "Loan": {
-      "duration": 7,
-      "amount": 100001
+      "Amount": 300000,
+      "Duration": 20
     },
     "Applicant": {
-      "yearly income": 120000,
-      "credit score": 401,
-      "name": "John Doe",
-      "age": 17
+      "Monthly Income": 4000,
+      "Credit Score": 300,
+      "Name": "Lucien Bramard",
+      "Age": 16
     }
   }
 }

@@ -1,0 +1,796 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://www.qlb.com/dmn/_96E3B174-69BB-4689-A66B-3A8DAA10D45D" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" id="_B102896E-9F4B-4CC0-B718-AD7F8CB45CFA" name="loan-preapproval" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://www.qlb.com/dmn/_96E3B174-69BB-4689-A66B-3A8DAA10D45D">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_C2F05AD7-1D7B-4BA4-B5EA-910EF2B6CD60" name="tApplicant" isCollection="false">
+    <dmn:itemComponent id="_BB16B99C-E015-4095-AA75-DEF1F6038541" name="Name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4FA21381-5BE7-4BF2-A48B-EC08A7067860" name="Credit Score" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="range" id="_F42DA245-8DA6-4181-B885-19F3F9BBFFC8">
+        <dmn:text>[250..900]</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BDE54FF1-F2C2-4280-AB53-87E14093E13F" name="Age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B8B83F2A-F0C1-4205-8595-A529ED3EB869" name="Monthly Income" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D5AFF9FB-AD8F-4999-818C-1E4AC4CAFEE3" name="tLoan" isCollection="false">
+    <dmn:itemComponent id="_93DC9B1B-D0C0-412B-ADEB-6026A82E2CA7" name="Amount" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_AC355D41-1318-4698-A853-C670C4E7C70A" name="Duration" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_9A1AAE56-5266-439B-88DC-BC81F7117CE9">
+        <dmn:text>7, 10, 12, 15, 20, 25</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_F624384B-AB0D-4927-B038-E0B337069D7D" name="tPreapproval" isCollection="false">
+    <dmn:itemComponent id="_39CBCC74-E3D0-44B0-B0D9-36EFC36A662E" name="Result" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CF63D919-5543-4D89-ACE3-F25814345696" name="Rejection Reasons" isCollection="true">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_3ECA5DF5-418B-4391-9160-C19836FA7FCF" name="Applicant">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5CE118DC-23F1-4215-ACDD-7EE544AA1787" name="Applicant" typeRef="tApplicant"/>
+  </dmn:inputData>
+  <dmn:decision id="_FA43244E-31F3-4552-9B18-152B3FB331B6" name="Interest Rate">
+    <dmn:extensionElements/>
+    <dmn:variable id="_3055FA67-A1DF-450E-9051-8991857E8625" name="Interest Rate" typeRef="number"/>
+    <dmn:informationRequirement id="_37A6B611-59BB-45C2-8C76-A158F09D96A8">
+      <dmn:requiredInput href="#_B05B6A66-E2DA-4F75-9830-EA1FE608F69A"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_EECEC066-012D-4357-9F99-4330F36BE2C9" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_C8550938-005F-4A85-A2B1-54528B659F07">
+        <dmn:inputExpression id="_2F28F904-5BA1-4A92-8181-89CFC71C13F4" typeRef="number">
+          <dmn:text>Loan.Amount</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_16E5BAE6-00BD-4BD0-B495-12F041EEE96F">
+        <dmn:inputExpression id="_CF7222FA-CE68-44E9-A7E7-127F385CF822" typeRef="number">
+          <dmn:text>Loan.Duration</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_D55D14F5-D633-4D46-9AC3-80C53D0FE25A"/>
+      <dmn:annotation name=""/>
+      <dmn:rule id="_66E9D17F-9344-409A-9D52-B315B9513248">
+        <dmn:inputEntry id="_9C395C32-1722-4199-AB92-3CAC800AE054">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7E750395-E095-40AC-A210-5E779AB7E6ED">
+          <dmn:text>7</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B6002C68-C168-43FD-A06F-DBFD40BE55BC">
+          <dmn:text>0.47</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_522BBE03-0657-4953-B129-962BAA3CDF0B">
+        <dmn:inputEntry id="_277951EE-6AF2-4A38-A72F-FE382D21E9B3">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1D3045AF-6555-4558-A0BC-78F2A7271C2E">
+          <dmn:text>7</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D788E73E-D842-4FA5-B40C-7F89117DBA04">
+          <dmn:text>0.70</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_EFBFE315-7D66-4390-BFA2-A1330F8093E4">
+        <dmn:inputEntry id="_6B4792C8-FED6-45F7-9FBF-69209B5865C4">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A800706F-6628-4F8E-A32E-721B9F2269D1">
+          <dmn:text>7</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_F31BA100-4A8E-4BC5-BF6E-E214B1D4D2E1">
+          <dmn:text>0.98</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CC0A1ADF-5522-4A05-8343-70103BCF0A8E">
+        <dmn:inputEntry id="_57DF1D64-3E8D-4602-931A-3908E43B1111">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1C288703-8923-44C3-97F0-34636E2C1F51">
+          <dmn:text>10</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_FBEB80AE-9CF3-4853-A4BC-0EE26042F5C0">
+          <dmn:text>0.72</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CBB25925-9BB6-4EEC-8D41-646C3A055933">
+        <dmn:inputEntry id="_016235B0-57C3-4CFF-B685-C5EADE4703ED">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5DC0D481-BCDA-403F-A160-853FA870A077">
+          <dmn:text>10</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_86E9D35D-0621-4A4F-9FDA-DDDAE3D2149A">
+          <dmn:text>0.90</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_589C14C8-6022-46BE-A6E2-52C102120C34">
+        <dmn:inputEntry id="_E0C1FD66-495A-45F7-91A9-F2DEE9C74E83">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A74A6A05-4FBB-4C18-AD5A-C6B59AF6D807">
+          <dmn:text>10</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AF56A6AD-FE6C-4C72-ADB1-339B3701E08C">
+          <dmn:text>1.10</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_28B011A6-C871-46AD-B5CE-3563C1E8870C">
+        <dmn:inputEntry id="_C5057203-9BA8-4790-9979-509F3A19C918">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4C06B509-7A4D-4421-8172-A32ACA25DEB3">
+          <dmn:text>12</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_106528AB-68B4-4488-9DA6-BF9A8BABD902">
+          <dmn:text>0.87</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_809BE937-F523-42E8-AB55-E679A303CD1B">
+        <dmn:inputEntry id="_80C8FB85-5055-4AD0-B0B5-5A58DABAF203">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9A45DA76-F9B3-4EE7-9833-A38D4338437C">
+          <dmn:text>12</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7741176E-9496-46A1-8FF1-CC5B7B00D0F0">
+          <dmn:text>1.06</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_8A1C91FE-E1A2-4573-BEB0-33380DF012A1">
+        <dmn:inputEntry id="_3164A03C-F97C-4F8E-A222-37189842B3BA">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_DD3F6016-9B7E-4E16-81A4-B63DBE1A038A">
+          <dmn:text>12</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_129577BA-BCEB-48B5-A238-142E2DDA1830">
+          <dmn:text>1.31</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_520FF221-CBD5-4BD0-8EA6-2C5B28A4E425">
+        <dmn:inputEntry id="_BD6E4CA0-075F-4880-9448-730335122100">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ADA7EEB9-6170-4469-8A1C-1565033DCA80">
+          <dmn:text>15</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AAF1EE0B-AA9C-4EB6-A396-54F2AE77873B">
+          <dmn:text>1.06</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_5B7570D3-24DB-4D42-A7FA-15615FBA52F2">
+        <dmn:inputEntry id="_D1E86737-A6C6-45E1-9969-1DADA4D8DE87">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3E940321-D975-4D6A-A3AE-EEB4789EF617">
+          <dmn:text>15</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_94DE8F40-3B58-4B38-8036-77E1CF6CEE75">
+          <dmn:text>1.20</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_A5B7A275-94F7-4749-B764-B882DFB44FF2">
+        <dmn:inputEntry id="_740F5948-DD17-4B6B-A326-04E18AE115A4">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9697CF6E-AEAF-4EF4-A577-00DD8EDBA70C">
+          <dmn:text>15</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B8643229-7101-4DB9-9130-5269F429978E">
+          <dmn:text>1.45</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_0D584036-B957-439E-80FE-A812B0F1283A">
+        <dmn:inputEntry id="_A181B186-1FF6-44A8-8F07-2E0BF9F6ECC1">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_B894ECA9-DE7C-4859-AB89-B6E2CFFF0401">
+          <dmn:text>20</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_616884AA-25A7-4CC9-8601-94BB6DC2DAEF">
+          <dmn:text>1.25</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_AF34D61D-956A-4396-9B99-B19E1227AAB6">
+        <dmn:inputEntry id="_5BE0574C-979F-4141-8E84-581FD304544F">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0673D628-B0A3-47B2-A60F-3B48A5528D7A">
+          <dmn:text>20</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_41D1C05F-4A6E-4CBF-AE2C-A474F8E67BF1">
+          <dmn:text>1.39</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_63B05109-5DAD-418E-A968-FAF18394E344">
+        <dmn:inputEntry id="_6E6EDCB9-800E-4A5E-99F9-2B2401358F95">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_932A18CB-AF11-402B-8A0D-0EE80BD51902">
+          <dmn:text>20</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_BBB0970E-2F0E-48E5-A63A-3332D7ECA6C6">
+          <dmn:text>1.65</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_4671A6AF-4755-41CD-B786-BA1C0BED99AC">
+        <dmn:inputEntry id="_C45B69CD-5D9C-44DC-AC48-25202EEC0542">
+          <dmn:text>&lt; 300000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0243011E-386B-4CB9-BDB6-A35E1BF80BBD">
+          <dmn:text>25</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_42D1938B-287A-407A-97AA-409FE8BE8620">
+          <dmn:text>1.45</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_78A99938-3E22-4C2B-8D86-4EE121F5C4C0">
+        <dmn:inputEntry id="_A3DB0E11-FD27-4DBB-883B-8D254557609F">
+          <dmn:text>[300000..600000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A239BEC2-3C5F-4890-95D9-490F22F42008">
+          <dmn:text>25</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_6672637D-9EE8-4B91-9763-74D2B82D1176">
+          <dmn:text>1.65</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_08CD46D2-0522-4D1E-81CD-1250ED7DAC84">
+        <dmn:inputEntry id="_79259BF3-9E09-4F9D-8CFF-65FB1BB9CC7E">
+          <dmn:text>&gt; 600000</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4E6C52E1-9B3F-44DA-9AF7-435A850235E5">
+          <dmn:text>25</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_70C7F6BD-D0A2-4A54-8CA5-F9845912A761">
+          <dmn:text>1.85</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_05347347-5D72-40A0-B98D-19F183DF36A4" name="Pre Approval">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1F23774C-4AD4-4F19-B956-3F1633DF0E5B" name="Pre Approval" typeRef="tPreapproval"/>
+    <dmn:informationRequirement id="_5B69FEDF-B17F-4BBD-8998-82853FDC7AEB">
+      <dmn:requiredDecision href="#_FA43244E-31F3-4552-9B18-152B3FB331B6"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_9B392BE9-5237-4430-84A3-F7A81507FF83">
+      <dmn:requiredInput href="#_B05B6A66-E2DA-4F75-9830-EA1FE608F69A"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_22C0BCAB-4E81-4CA3-8B21-E9DB34AA3D27">
+      <dmn:requiredInput href="#_3ECA5DF5-418B-4391-9160-C19836FA7FCF"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_C1E118FB-7C15-4961-A711-2C6FED86E048">
+      <dmn:requiredKnowledge href="#_CB7237B0-256B-4034-B299-7D1562480837"/>
+    </dmn:knowledgeRequirement>
+    <dmn:context id="_A7BB6601-5D31-49CA-9E6E-B34B5BF9FA71">
+      <dmn:contextEntry>
+        <dmn:variable id="_D688C7F7-6E97-49D6-A617-98A333AF01E8" name="Applicant Eligibility Check" typeRef="tPreapproval"/>
+        <dmn:decisionTable id="_23530EA8-82C5-4722-BE93-7391D582973C" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_DD79C68F-C9A1-4139-A635-EA3BC3ED1B2B">
+            <dmn:inputExpression id="_B151CE25-5443-46BF-A7FF-EEFB631C058B" typeRef="number">
+              <dmn:text>Applicant.Age</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_C5656916-C095-416B-8DFE-7EA329F5AE74" name="Result" typeRef="boolean">
+            <dmn:defaultOutputEntry id="_317FFA89-79A8-4AA0-9BD6-1028FEAE9082">
+              <dmn:text>true</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:output id="_CE96A4D4-F73A-4C85-AA6A-DA31E428914C" name="Rejection Reasons" typeRef="string">
+            <dmn:defaultOutputEntry id="_C624165C-5707-4A72-B344-24911493A5CC">
+              <dmn:text>""</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:annotation name=""/>
+          <dmn:rule id="_DB6B5A42-95FE-4EC5-BAC7-18C8570D7E7F">
+            <dmn:inputEntry id="_2C62CFA6-062A-42D0-8A64-C5149C6B6E3F">
+              <dmn:text>not( [18 .. 70] )</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_321D3EB6-7962-4228-9DE6-5FF0B6F40A63">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_EBA906A2-EF3B-473C-B72F-3715B483D49E">
+              <dmn:text>"Non eligible age"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_D5884762-3222-42A7-97EE-95ED436F9497" name="Debt Ratio" typeRef="number"/>
+        <dmn:invocation id="_39ED3A5A-A0C9-4146-BFCA-A1BC62336551">
+          <dmn:literalExpression id="_A490E2DA-AC36-4FC5-A3A3-DAC84C924FF4">
+            <dmn:text>Debt Ratio</dmn:text>
+          </dmn:literalExpression>
+          <dmn:binding>
+            <dmn:parameter id="_FFF8D86F-B0F3-4E68-A89E-C397A0774314" name="loanAmount" typeRef="number"/>
+            <dmn:literalExpression id="_4379DDD4-424E-445C-9A31-C67D2E61A6D5">
+              <dmn:text>Loan.Amount</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+          <dmn:binding>
+            <dmn:parameter id="_5AB3E90F-9AA9-449C-A1B6-5E5A5B7357A7" name="loanDuration" typeRef="number"/>
+            <dmn:literalExpression id="_58FC80B8-5BA5-45F9-9E0D-A3720A184873">
+              <dmn:text>Loan.Duration</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+          <dmn:binding>
+            <dmn:parameter id="_25E74B76-2AA5-4482-8F64-149C6891D871" name="interestRate" typeRef="number"/>
+            <dmn:literalExpression id="_59F87140-2D4B-4A0D-8236-38A183E44221">
+              <dmn:text>Interest Rate</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+          <dmn:binding>
+            <dmn:parameter id="_9835D873-D23E-4CA1-8177-916F61C2E610" name="monthlyIncome" typeRef="number"/>
+            <dmn:literalExpression id="_06686141-23AE-461D-A4D8-373307A1497A">
+              <dmn:text>Applicant.Monthly Income</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+        </dmn:invocation>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_BA13D415-41F7-4C35-B9B0-F1F2B289F01C" name="Debt Ratio Check" typeRef="tPreapproval"/>
+        <dmn:decisionTable id="_18327C54-16FB-4476-9A15-9B1BCDA89B91" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_A8B2D55C-3428-44EF-BF65-2D1E7B38DEF4">
+            <dmn:inputExpression id="_C44B27F9-44D7-49AC-B7DE-D2E6AB484E9D" typeRef="number">
+              <dmn:text>Debt Ratio</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_995CCC32-A348-4CB4-97C6-FAC5418F9641" name="Result" typeRef="boolean">
+            <dmn:defaultOutputEntry id="_25570C01-F394-4286-8A34-2DC52F25B85E">
+              <dmn:text>true</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:output id="_F6F6AE00-8514-432E-ACA1-DC8B595CF283" name="Rejection Reasons" typeRef="string">
+            <dmn:defaultOutputEntry id="_A8C94B9F-DDC3-498C-A162-5046F9B9DD6D">
+              <dmn:text>""</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:annotation name=""/>
+          <dmn:rule id="_6CCC8540-267E-4EF1-AE31-9B22CCBCD990">
+            <dmn:inputEntry id="_2C0C9107-8C65-4DFA-9EA0-07E3C3134CCB">
+              <dmn:text>&gt; 30</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_6C822FBF-4066-47D8-BCCD-E65CF5DD7C99">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_0805A4E7-3F77-44FD-95A4-F3FE9704560A">
+              <dmn:text>"High debt ratio (" + string(decimal(Debt Ratio,2)) + "%)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_79BEF289-1405-40CD-93D9-E6858E1A5031" name="Loan Amount Check" typeRef="tPreapproval"/>
+        <dmn:decisionTable id="_466B99C1-4271-430C-99FF-46489FA74799" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_6D9BC50E-AB4F-4C19-A614-2030241A4A81">
+            <dmn:inputExpression id="_DE8D07EA-F95C-46BD-BA10-C34D0265C43F" typeRef="number">
+              <dmn:text>Loan.Amount</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_5C9D9662-8994-4117-972E-0FDAD134ECBF" name="Result" typeRef="boolean">
+            <dmn:defaultOutputEntry id="_031A9D36-168F-45F5-ACB1-2055AEAC946E">
+              <dmn:text>true</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:output id="_DC500BBE-2663-496F-9140-C2E55618DC85" name="Rejection Reasons" typeRef="string">
+            <dmn:defaultOutputEntry id="_F6CE11D0-3725-48BD-BE2F-4A6396F61CF3">
+              <dmn:text>""</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:annotation name=""/>
+          <dmn:rule id="_ED2D6EA8-B78A-4439-8902-27DE30570A86">
+            <dmn:inputEntry id="_A9E0A769-DDFD-4E3F-9AC4-FC478FE3D9F4">
+              <dmn:text>&lt; 1000</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_E8B89E0A-8283-4EAE-BECE-23A440D03C29">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_532BB8F4-AB41-4391-B398-8724EA70AD01">
+              <dmn:text>"Loan amount too low (min is 1000)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_4ADD6DF7-5BAD-4628-B764-331CDB38A28A">
+            <dmn:inputEntry id="_2FAA7FDC-B1F6-42D0-B4FD-A5AEEF053FFD">
+              <dmn:text>&gt; 1000000</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_594187EA-10E9-40B3-B71D-F3E71A48206C">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_A4B6DE4A-3608-4E9E-A45B-0ED528DD8110">
+              <dmn:text>"Loan amount too high (max is 1000000)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_ABC3B4BB-93DB-4F37-B206-A28EF07B276D" name="Credit Score Check" typeRef="tPreapproval"/>
+        <dmn:decisionTable id="_D898E2BE-21B5-41BF-955D-103AC4B643C6" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_381F051D-44AB-492B-A232-82E66635BCC8">
+            <dmn:inputExpression id="_F84D4695-C3C4-41B1-93B1-DEAEB8F62332" typeRef="number">
+              <dmn:text>Loan.Amount</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:input id="_83C0BD6A-6B2D-49F7-9364-493B5394FB14">
+            <dmn:inputExpression id="_7944D2CD-C3C1-4E7C-BFDA-4856B9AB6903" typeRef="number">
+              <dmn:text>Applicant.Credit Score</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_6011B8A5-3BDC-4900-B7FF-4FB79F885D2A" name="Result" typeRef="boolean">
+            <dmn:defaultOutputEntry id="_BB8AE6B7-5847-4829-9A07-E1120E72314C">
+              <dmn:text>true</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:output id="_4855E661-D2B4-478C-89B7-49FEA006D799" name="Rejection Reasons" typeRef="string">
+            <dmn:defaultOutputEntry id="_339A8657-EAEF-459F-93D6-2A066949AEAE">
+              <dmn:text>""</dmn:text>
+            </dmn:defaultOutputEntry>
+          </dmn:output>
+          <dmn:annotation name=""/>
+          <dmn:rule id="_7C1F38FC-3F3C-44AF-AD02-FFA6EA763434">
+            <dmn:inputEntry id="_B9EA11B2-5C5F-4BBB-9ED8-A5AE23DEAE87">
+              <dmn:text>-</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_4F6E3F07-0462-4832-8A33-CF719B8244D0">
+              <dmn:text>&lt; 300</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_A7EC5571-4E0D-49BC-A38B-5BDB346C4F8E">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_5AA73184-5937-4063-8A0A-8B43648963B6">
+              <dmn:text>"Insufficient credit score (min required is 300)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_9765EA31-42F1-4E20-985F-DEC6DDBA057C">
+            <dmn:inputEntry id="_A92F471C-5F9D-4C18-B2F6-EC420C75C0AF">
+              <dmn:text>[100000..300000)</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_16EDDF4B-BB98-4961-BBAC-086DE30014C0">
+              <dmn:text>&lt; 400</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_0E1864B6-0231-43A1-A4C5-355670789BF1">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_FE225F18-1CD5-4725-8708-BC090D30AB30">
+              <dmn:text>"Insufficient credit score (min required is 400)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_D2EB23E8-D7F8-4889-BA43-431F7D17FE5A">
+            <dmn:inputEntry id="_E4447EDA-F917-4E26-990B-A8A1AF744B27">
+              <dmn:text>[300000..400000)</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_0165F53C-7034-40D5-9E5A-0DCC3E65F048">
+              <dmn:text>&lt; 500</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_0B9A5ABE-1376-4E18-8284-432A61F547EE">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_75D52FE3-6081-4AD6-B897-A9F6BC2585C6">
+              <dmn:text>"Insufficient credit score (min required is 500)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_3FE6AE9F-019B-40E2-80A1-CB64A5E105F2">
+            <dmn:inputEntry id="_4E800721-A9D6-486E-8F39-3D897FF65DCF">
+              <dmn:text>[400000..500000)</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_66851FD3-6926-432C-AFE4-9E1BB87C22E1">
+              <dmn:text>&lt; 600</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_EC51EA7C-EE1B-4B8A-8574-27B1E4017E4A">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_DC90DFDB-FEF8-4B6F-BF72-C1333828DB78">
+              <dmn:text>"Insufficient credit score (min required is 600)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_EBCC8519-7D1C-4017-AA50-91D55FDC1785">
+            <dmn:inputEntry id="_BE794EF9-2E85-40D3-A3FE-CD6346B1B930">
+              <dmn:text>[500000..1000000]</dmn:text>
+            </dmn:inputEntry>
+            <dmn:inputEntry id="_EEABE493-4CB7-4C75-AF26-968837BE1A7E">
+              <dmn:text>&lt; 700</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_79E8B017-A001-4F8A-B9B3-DA6AB2DDCC0D">
+              <dmn:text>false</dmn:text>
+            </dmn:outputEntry>
+            <dmn:outputEntry id="_86D15D84-A92D-4CCC-BE5B-1272579D01D5">
+              <dmn:text>"Insufficient credit score (min required is 700)"</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_E90BEBE0-5350-4925-8F42-5BB05496D5B9" name="Result" typeRef="boolean"/>
+        <dmn:literalExpression id="_F93C114C-54BE-401F-ADB1-CB779E8696EF">
+          <dmn:text>all (Applicant Eligibility Check.Result , Debt Ratio Check.Result , Loan Amount Check.Result , Credit Score Check.Result  )</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_DB22C4E7-B2D7-4274-9D42-23D7168AF8A8" name="Rejection Reasons" typeRef="string"/>
+        <dmn:literalExpression id="_FBDCD1FE-9090-46D8-89A5-5673819112E7">
+          <dmn:text>union(Applicant Eligibility Check.Rejection Reasons, Debt Ratio Check.Rejection Reasons, Loan Amount Check.Rejection Reasons,Credit Score Check.Rejection Reasons)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_23F68B38-0282-4872-98D5-56A5ADFC5211">
+          <dmn:text>{"Result" : Result  , "Rejection Reasons" :  Rejection Reasons[item != ""] }</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_CB7237B0-256B-4034-B299-7D1562480837" name="Debt Ratio">
+    <dmn:extensionElements/>
+    <dmn:variable id="_A2C467B9-02C9-4573-8419-3352E9AEC374" name="Debt Ratio" typeRef="number"/>
+    <dmn:encapsulatedLogic id="_924B7003-4A55-4E6A-B5C4-3D5B28CB68C0" kind="FEEL">
+      <dmn:formalParameter id="_B4686E4B-DC2C-4761-90D4-415A601E83E8" name="loanAmount" typeRef="number"/>
+      <dmn:formalParameter id="_68745807-E9C2-4098-9212-E9F36C23C0E3" name="loanDuration" typeRef="number"/>
+      <dmn:formalParameter id="_2E9C4601-77B3-4AE8-B8E5-BC1C9FE38751" name="interestRate" typeRef="number"/>
+      <dmn:formalParameter id="_248646FE-E45B-4304-BBAD-748DB80FACE2" name="monthlyIncome"/>
+      <dmn:context id="_48B74127-8AF6-44BC-A40F-09C4D8E9FA97">
+        <dmn:contextEntry>
+          <dmn:variable id="_86E9BAF0-237E-4086-A930-8BB315D377B4" name="Monthly Repayment" typeRef="number"/>
+          <dmn:literalExpression id="_8314C92B-DA16-4155-8121-4E550AE742B9">
+            <dmn:text>( ( interestRate * loanAmount / 100 ) + loanAmount ) / ( loanDuration * 12 )</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:literalExpression id="_C8A776A2-AC6B-4AED-878C-B5C5F1342807">
+            <dmn:text>( Monthly Repayment / monthlyIncome ) * 100</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+      </dmn:context>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:inputData id="_B05B6A66-E2DA-4F75-9830-EA1FE608F69A" name="Loan">
+    <dmn:extensionElements/>
+    <dmn:variable id="_9A02E7DE-1CD1-4DEC-8F12-DD66728EEFAD" name="Loan" typeRef="tLoan"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EECEC066-012D-4357-9F99-4330F36BE2C9">
+            <kie:width>50</kie:width>
+            <kie:width>154</kie:width>
+            <kie:width>178</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A7BB6601-5D31-49CA-9E6E-B34B5BF9FA71">
+            <kie:width>50</kie:width>
+            <kie:width>227</kie:width>
+            <kie:width>1104</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_23530EA8-82C5-4722-BE93-7391D582973C">
+            <kie:width>50</kie:width>
+            <kie:width>182</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>228</kie:width>
+            <kie:width>524</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_39ED3A5A-A0C9-4146-BFCA-A1BC62336551">
+            <kie:width>50</kie:width>
+            <kie:width>159</kie:width>
+            <kie:width>875</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A490E2DA-AC36-4FC5-A3A3-DAC84C924FF4"/>
+          <kie:ComponentWidths dmnElementRef="_4379DDD4-424E-445C-9A31-C67D2E61A6D5">
+            <kie:width>875</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_58FC80B8-5BA5-45F9-9E0D-A3720A184873">
+            <kie:width>875</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_59F87140-2D4B-4A0D-8236-38A183E44221">
+            <kie:width>875</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_06686141-23AE-461D-A4D8-373307A1497A">
+            <kie:width>875</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_18327C54-16FB-4476-9A15-9B1BCDA89B91">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>639</kie:width>
+            <kie:width>195</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_466B99C1-4271-430C-99FF-46489FA74799">
+            <kie:width>50</kie:width>
+            <kie:width>159</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>331</kie:width>
+            <kie:width>444</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D898E2BE-21B5-41BF-955D-103AC4B643C6">
+            <kie:width>50</kie:width>
+            <kie:width>146</kie:width>
+            <kie:width>155</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>401</kie:width>
+            <kie:width>232</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F93C114C-54BE-401F-ADB1-CB779E8696EF">
+            <kie:width>1104</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_FBDCD1FE-9090-46D8-89A5-5673819112E7">
+            <kie:width>1104</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_23F68B38-0282-4872-98D5-56A5ADFC5211">
+            <kie:width>1104</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_48B74127-8AF6-44BC-A40F-09C4D8E9FA97">
+            <kie:width>50</kie:width>
+            <kie:width>180</kie:width>
+            <kie:width>707</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8314C92B-DA16-4155-8121-4E550AE742B9">
+            <kie:width>707</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C8A776A2-AC6B-4AED-878C-B5C5F1342807">
+            <kie:width>707</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_924B7003-4A55-4E6A-B5C4-3D5B28CB68C0">
+            <kie:width>50</kie:width>
+            <kie:width>957</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_3ECA5DF5-418B-4391-9160-C19836FA7FCF" dmnElementRef="_3ECA5DF5-418B-4391-9160-C19836FA7FCF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="426" y="265" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_FA43244E-31F3-4552-9B18-152B3FB331B6" dmnElementRef="_FA43244E-31F3-4552-9B18-152B3FB331B6" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="181" y="140" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_05347347-5D72-40A0-B98D-19F183DF36A4" dmnElementRef="_05347347-5D72-40A0-B98D-19F183DF36A4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="351" y="38" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_CB7237B0-256B-4034-B299-7D1562480837" dmnElementRef="_CB7237B0-256B-4034-B299-7D1562480837" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="521" y="38" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_B05B6A66-E2DA-4F75-9830-EA1FE608F69A" dmnElementRef="_B05B6A66-E2DA-4F75-9830-EA1FE608F69A" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="292" y="265" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_37A6B611-59BB-45C2-8C76-A158F09D96A8" dmnElementRef="_37A6B611-59BB-45C2-8C76-A158F09D96A8">
+        <di:waypoint x="342" y="290"/>
+        <di:waypoint x="231" y="165"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_5B69FEDF-B17F-4BBD-8998-82853FDC7AEB" dmnElementRef="_5B69FEDF-B17F-4BBD-8998-82853FDC7AEB">
+        <di:waypoint x="231" y="165"/>
+        <di:waypoint x="401" y="63"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_9B392BE9-5237-4430-84A3-F7A81507FF83" dmnElementRef="_9B392BE9-5237-4430-84A3-F7A81507FF83">
+        <di:waypoint x="342" y="290"/>
+        <di:waypoint x="401" y="63"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_22C0BCAB-4E81-4CA3-8B21-E9DB34AA3D27" dmnElementRef="_22C0BCAB-4E81-4CA3-8B21-E9DB34AA3D27">
+        <di:waypoint x="476" y="290"/>
+        <di:waypoint x="401" y="63"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_C1E118FB-7C15-4961-A711-2C6FED86E048" dmnElementRef="_C1E118FB-7C15-4961-A711-2C6FED86E048">
+        <di:waypoint x="571" y="63"/>
+        <di:waypoint x="451" y="63"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
