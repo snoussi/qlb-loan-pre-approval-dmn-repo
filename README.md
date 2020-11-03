@@ -11,9 +11,9 @@ Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
 
 ```json
 {
-  "model-namespace": "http://www.qlb.com/dmn/definitions/_c55e5995-0cc9-40b8-b783-88468c69ebca",
-  "model-name": "loan-pre-approval",
-  "decision-name": "Loan Approval",
+  "model-namespace": "http://www.qlb.com/dmn/_96E3B174-69BB-4689-A66B-3A8DAA10D45D",
+  "model-name": "loan-preapproval",
+  "decision-name": "Pre Approval",
   "decision-id": [],
   "dmn-context": {
     "Loan": {
