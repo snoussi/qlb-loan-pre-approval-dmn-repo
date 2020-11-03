@@ -14,8 +14,8 @@
           </factIdentifier>
           <className>java.lang.Integer</className>
           <factAlias>#</factAlias>
-          <columnWidth>70</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>70.0</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements/>
@@ -29,8 +29,8 @@
           </factIdentifier>
           <className>java.lang.String</className>
           <factAlias>Scenario description</factAlias>
-          <columnWidth>300</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>300.0</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -42,19 +42,18 @@
             </ExpressionElement>
           </expressionElements>
           <expressionIdentifier>
-            <name>1|2</name>
+            <name>1604428259398</name>
             <type>GIVEN</type>
           </expressionIdentifier>
           <factIdentifier>
             <name>Applicant</name>
             <className>Applicant</className>
           </factIdentifier>
-          <className>number</className>
+          <className>Credit Score</className>
           <factAlias>Applicant</factAlias>
           <expressionAlias>Credit Score</expressionAlias>
-          <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>149.67049643716598</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -77,8 +76,8 @@
           <factAlias>Applicant</factAlias>
           <expressionAlias>Age</expressionAlias>
           <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>183.58041790774612</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -101,8 +100,8 @@
           <factAlias>Applicant</factAlias>
           <expressionAlias>Monthly Income</expressionAlias>
           <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>183.58041790774612</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -125,8 +124,8 @@
           <factAlias>Loan</factAlias>
           <expressionAlias>Amount</expressionAlias>
           <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>183.58041790774612</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -138,19 +137,18 @@
             </ExpressionElement>
           </expressionElements>
           <expressionIdentifier>
-            <name>1|6</name>
+            <name>1604428311946</name>
             <type>GIVEN</type>
           </expressionIdentifier>
           <factIdentifier>
             <name>Loan</name>
             <className>Loan</className>
           </factIdentifier>
-          <className>number</className>
+          <className>Duration</className>
           <factAlias>Loan</factAlias>
           <expressionAlias>Duration</expressionAlias>
-          <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>172.42741402410348</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -170,8 +168,8 @@
           <factAlias>Interest Rate</factAlias>
           <expressionAlias>value</expressionAlias>
           <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>183.58041790774612</columnWidth>
         </FactMapping>
         <FactMapping>
           <expressionElements>
@@ -194,8 +192,8 @@
           <factAlias>Pre Approval</factAlias>
           <expressionAlias>Result</expressionAlias>
           <genericTypes/>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>183.58041790774612</columnWidth>
         </FactMapping>
       </factMappings>
     </scesimModelDescriptor>
@@ -212,17 +210,6 @@
               <type>OTHER</type>
             </expressionIdentifier>
             <rawValue class="string">Too large loan amount</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
-              <name>Applicant</name>
-              <className>Applicant</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|2</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">700</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
@@ -259,17 +246,6 @@
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
-              <name>Loan</name>
-              <className>Loan</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|6</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">7</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
               <name>Interest Rate</name>
               <className>Interest Rate</className>
             </factIdentifier>
@@ -301,6 +277,28 @@
             </expressionIdentifier>
             <rawValue class="string">1</rawValue>
           </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428259398</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">700</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan</name>
+              <className>Loan</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428311946</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">7</rawValue>
+          </FactMappingValue>
         </factMappingValues>
       </Scenario>
       <Scenario>
@@ -315,17 +313,6 @@
               <type>OTHER</type>
             </expressionIdentifier>
             <rawValue class="string">Underaged applicant</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
-              <name>Applicant</name>
-              <className>Applicant</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|2</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">700</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
@@ -362,17 +349,6 @@
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
-              <name>Loan</name>
-              <className>Loan</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|6</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">7</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
               <name>Interest Rate</name>
               <className>Interest Rate</className>
             </factIdentifier>
@@ -404,6 +380,28 @@
             </expressionIdentifier>
             <rawValue class="string">2</rawValue>
           </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428259398</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">700</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan</name>
+              <className>Loan</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428311946</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">7</rawValue>
+          </FactMappingValue>
         </factMappingValues>
       </Scenario>
       <Scenario>
@@ -418,17 +416,6 @@
               <type>OTHER</type>
             </expressionIdentifier>
             <rawValue class="string">Too low loan amount</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
-              <name>Applicant</name>
-              <className>Applicant</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|2</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">700</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
@@ -465,17 +452,6 @@
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
-              <name>Loan</name>
-              <className>Loan</className>
-            </factIdentifier>
-            <expressionIdentifier>
-              <name>1|6</name>
-              <type>GIVEN</type>
-            </expressionIdentifier>
-            <rawValue class="string">7</rawValue>
-          </FactMappingValue>
-          <FactMappingValue>
-            <factIdentifier>
               <name>Interest Rate</name>
               <className>Interest Rate</className>
             </factIdentifier>
@@ -507,6 +483,28 @@
             </expressionIdentifier>
             <rawValue class="string">3</rawValue>
           </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Applicant</name>
+              <className>Applicant</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428259398</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">700</rawValue>
+          </FactMappingValue>
+          <FactMappingValue>
+            <factIdentifier>
+              <name>Loan</name>
+              <className>Loan</className>
+            </factIdentifier>
+            <expressionIdentifier>
+              <name>1604428311946</name>
+              <type>GIVEN</type>
+            </expressionIdentifier>
+            <rawValue class="string">7</rawValue>
+          </FactMappingValue>
         </factMappingValues>
       </Scenario>
     </scesimData>
@@ -527,8 +525,8 @@
           <className>java.lang.Void</className>
           <factAlias>INSTANCE 1</factAlias>
           <expressionAlias>PROPERTY 1</expressionAlias>
-          <columnWidth>114</columnWidth>
           <factMappingValueType>NOT_EXPRESSION</factMappingValueType>
+          <columnWidth>114.0</columnWidth>
         </FactMapping>
       </factMappings>
     </scesimModelDescriptor>
