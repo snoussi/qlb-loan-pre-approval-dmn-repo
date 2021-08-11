@@ -5,7 +5,7 @@ Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
 
 ## Decision Service definition
 
-![DMN model](global/dmn.png)
+![DMN model](src/main/resources/com/redhat/demo/qlb/loan-preapproval.dmn.svg)
 
 ## Decision service request examlpe
 
