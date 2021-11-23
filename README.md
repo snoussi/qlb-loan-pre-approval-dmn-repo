@@ -18,13 +18,13 @@ Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
   "dmn-context": {
     "Loan": {
       "Amount": 300000,
-      "Duration": 20
+      "Duration": 25
     },
     "Applicant": {
       "Monthly Income": 4000,
       "Credit Score": 300,
       "Name": "Lucien Bramard",
-      "Age": 16
+      "Age": 17
     }
   }
 }
