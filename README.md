@@ -16,15 +16,15 @@ Reference: https://github.com/snoussi/qlb-loan-pre-approval-repo.git
   "decision-name": "Pre Approval",
   "decision-id": [],
   "dmn-context": {
+    "Applicant": {
+      "Name": "Lucien Bramard",
+      "Age": 17,
+      "Monthly Income": 4000,
+      "Credit Score": 300
+    },
     "Loan": {
       "Amount": 300000,
       "Duration": 25
-    },
-    "Applicant": {
-      "Monthly Income": 4000,
-      "Credit Score": 300,
-      "Name": "Lucien Bramard",
-      "Age": 17
     }
   }
 }
