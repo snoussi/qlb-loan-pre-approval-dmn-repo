@@ -510,7 +510,7 @@
       <dmn:annotation name=""/>
       <dmn:rule id="_2AF5E518-6181-4755-BD54-8175756185B8">
         <dmn:inputEntry id="_4D1043A7-92F5-46FD-BCBA-3794A5BDA083">
-          <dmn:text>&lt; 17</dmn:text>
+          <dmn:text>&lt; 18</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_76832831-BD76-481C-A27E-18CFDA1F6C55">
           <dmn:text>false</dmn:text>
@@ -524,7 +524,7 @@
       </dmn:rule>
       <dmn:rule id="_D1D2CAF8-45B0-43B2-AF88-88A1EEE93D72">
         <dmn:inputEntry id="_44774C41-6C60-4EE1-B1B6-9EB0F7C9F0D8">
-          <dmn:text>[17..70]</dmn:text>
+          <dmn:text>[18..70]</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_006B5E89-1887-4958-AE57-1C5F33787716">
           <dmn:text>true</dmn:text>
